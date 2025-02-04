@@ -41,7 +41,7 @@ This project demonstrates Infrastructure-as-Code (IaC) using **Terraform** to pr
 ## Usage
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/terraform-aws-iac.git
+git clone https://github.com/iamdanielokoye/Terraform-Aws-Iac.git
 cd terraform-aws-iac
 ```
 
@@ -76,12 +76,3 @@ The GitHub Actions workflow automates Terraform deployment with:
 - Add **Terraform State Management** using **S3 + DynamoDB**.
 - Implement **AWS IAM Role-based Access Controls (RBAC)**.
 - Expand Sentinel policies for advanced compliance checks.
-
-## License
-This project is licensed under the MIT License.
-
----
-**Author**: Your Name  
-**GitHub**: [yourusername](https://github.com/yourusername)  
-**Email**: your.email@example.com
-
