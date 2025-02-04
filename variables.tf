@@ -48,7 +48,7 @@ variable "rds_db_password" {
   sensitive   = true
 }
 
-variable "s3_bucket_name" {
+variable "s3_bucket" {
   description = "Name of the S3 bucket"
   default     = "my-secure-bucket"
 }
