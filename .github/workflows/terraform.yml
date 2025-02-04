@@ -19,11 +19,10 @@ jobs:
           uses: hashicorp/setup-terraform@v1
 
         - name: Terraform Format
-          run: terraform fmt -check
-
-        - name: Terraform Format Fix
-          if: failure()
           run: terraform fmt -write=true
+
+        - name: Terraform Format Check
+          run: terraform fmt -check
 
         - name: Terraform Init
           run: terraform init
