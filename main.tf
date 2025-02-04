@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
-
 module "vpc" {
   source = "./modules/vpc"
 
@@ -33,5 +29,5 @@ module "rds" {
 module "s3" {
   source = "./modules/s3"
 
-  bucket_name = var.s3_bucket_name
+  s3_bucket = var.s3_bucket
 }
