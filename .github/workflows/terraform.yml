@@ -30,6 +30,12 @@ jobs:
         - name: Terraform Validate
           run: terraform validate
         
+        - name: Convert Terraform Plan to JSON
+          run: terraform show -json tfplan.binary > tfplan.json
+  
+        - name: Run Sentinel Policies
+          run: sentinel apply -config=sentinel.hcl
+
         - name: Security Scan with Terraform Sentinel
           run: sentinel apply --exit-status
 
