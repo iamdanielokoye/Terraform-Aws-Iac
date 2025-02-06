@@ -36,6 +36,13 @@ jobs:
 #            terraform show -json tfplan > tfplan.json
 #            echo "TF_PLAN=$(cat tfplan.json)" >> $GITHUB_ENV
         
+        - name: Install Sentinel
+          run: |
+            curl -sSL https://checkpoint-api.hashicorp.com/v1/check/sentinel | jq -r -M '.current_version' | xargs -I {} curl -sSL https://releases.hashicorp.com/sentinel/{}/sentinel_{}_linux_amd64.zip -o sentinel.zip
+            unzip sentinel.zip
+            sudo mv sentinel /usr/local/bin/
+            sentinel --version
+            
         - name: Run Sentinel Policies
           run: sentinel apply -config=sentinel.hcl
 
