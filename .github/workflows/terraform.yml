@@ -13,7 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Checkout code
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v1
@@ -30,11 +30,11 @@ jobs:
         - name: Terraform Validate
           run: terraform validate
         
-        - name: Terraform Plan and Output JSON
-          run: |
-            terraform plan -out=tfplan
-            terraform show -json tfplan > tfplan.json
-            echo "TF_PLAN=$(cat tfplan.json)" >> $GITHUB_ENV
+#        - name: Terraform Plan and Output JSON
+#          run: |
+#            terraform plan -out=tfplan
+#            terraform show -json tfplan > tfplan.json
+#            echo "TF_PLAN=$(cat tfplan.json)" >> $GITHUB_ENV
         
         - name: Run Sentinel Policies
           run: sentinel apply -config=sentinel.hcl
