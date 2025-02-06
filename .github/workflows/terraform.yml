@@ -15,9 +15,6 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
         
-        - name: Set output
-          run: echo "variable_name=value" >> $GITHUB_ENV
-
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v1
 
@@ -37,6 +34,7 @@ jobs:
           run: |
             terraform plan -out=tfplan
             terraform show -json tfplan > tfplan.json
+            echo "TF_PLAN=$(cat tfplan.json)" >> $GITHUB_ENV
         
         - name: Run Sentinel Policies
           run: sentinel apply -config=sentinel.hcl
